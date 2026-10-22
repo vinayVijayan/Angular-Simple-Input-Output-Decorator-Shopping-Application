@@ -1,4 +1,5 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { CartService } from '../services/cart.services';
 
 @Component({
   imports: [],
@@ -10,8 +11,10 @@ export class Ngconentex {
 
   @Input() productname:string = ''
   @Input() price:number = 0
-  @Output() itemadded = new EventEmitter<string>()
-  buyItem(){
-    this.itemadded.emit(this.productname)
+  constructor(private cartService: CartService){
+
   }
+  buyItem(){
+  this.cartService.addToCart();  
+}
 }
