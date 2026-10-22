@@ -6,7 +6,7 @@
 <div>
   <h2>Products</h2>
   @for (item of productList; track item.name) {
-<app-ngconentex [productname] = "item.name" [price]="item.price"></app-ngconentex>
+<app-ngconentex [productname] = "item.name" [price]="item.price" (itemadded)="handlechange($event)"></app-ngconentex>
 }
 <p>Items in cart: {{ cartCount }}</p>
 </div>
